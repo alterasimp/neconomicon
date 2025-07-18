@@ -10,7 +10,7 @@
     padding: 0;
     background: linear-gradient(to right, #ffccff, #ccffff);
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    overflow: hidden;
+    overflow: auto;
   }
 
   .intro-block {
@@ -19,7 +19,7 @@
     align-items: center;
     justify-content: flex-start;
     text-align: center;
-    padding-top: 80px;
+    padding-top: -10px;
     height: 100vh;
   }
 
@@ -55,7 +55,7 @@
 
     .nyan {
       position: absolute;
-      top: 350px;
+      top: 750px;
       left: -200px;
       width: 160px;
       animation: fly 10s linear infinite;
@@ -100,35 +100,36 @@
 </head>
 <body>
   
-  <script>
-    fetch("https://pastebin.com/raw/bv54Tmrh")
-  .then(response => response.text())
-  .then(data => {
-    let tumYazi = data;
-    console.log(tumYazi);   
-    document.querySelector("p.alt-yazi").innerText = tumYazi;
 
-  })
-  .catch(error => console.error("Hata:", error));
-  </script>
 
   <img class="nyan" src="https://media.tenor.com/8lR3_1m-i94AAAAi/cat.gif" alt="Nyan Cat" id="nyan"/>
- 
+
+<script>
+fetch("https://gist.githubusercontent.com/alterasimp/7171b3dccf7d060f924bffc6c809ff32/raw/futureplan.txt")
+  .then(res => res.text())
+  .then(data => document.getElementById("p3").innerText = data)
+  
+
+
+  fetch("https://gist.githubusercontent.com/alterasimp/7de2ae1f6a37af1fe6355eb89c6e1dcb/raw/main")
+  .then(res => res.text())
+  .then(data => document.getElementById("alt-yazi").innerText = data)
+</script>
+
   <div class="container" id="main-content">
-  <div class="intro-block">
+     
+  <div class="intro-block">  
     <h1>Necomonicon</h1>
-    <p class="alt-yazi"></p>
+    <p class="alt-yazi" id="alt-yazi"></p>
   </div>
-</div>
+</div> 
 
   <div class="dark-page" id="dark-page">
     <h1>🖤 Future Plans 🖤</h1>
-      "https://pastebin.com/raw/bv54Tmrh";
-      String deden = p3URL.
-    <p class="p3">asdasdasd</p>
+    <p class="p3" id="p3"></p>
   </div>
 
-  <script>
+  <script> 
     let clickCount = 0;
     const nyan = document.getElementById('nyan');
     const darkPage = document.getElementById('dark-page');
