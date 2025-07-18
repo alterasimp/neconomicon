@@ -5,32 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Necomonicon</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #ffccff, #ccffff);
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      overflow: hidden;
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ffccff, #ccffff);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow: hidden;
+  }
 
-    .intro-block {
+  .intro-block {
     display: flex;
     flex-direction: column;
-    align-items: center;    /* tüm içerikleri yatayda ortalar */
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
     text-align: center;
-    }
+    padding-top: 80px;
+    height: 100vh;
+  }
 
-    .intro-block h1 {
+  .intro-block h1 {
     font-size: 48px;
-    margin-bottom: 20px;
-    }
- 
-    .alt-yazi {
+    margin-bottom: 10px;
+  }
+
+  .alt-yazi {
     font-size: 20px;
     max-width: 800px;
-    margin: 0;
-    }
+    margin-top: 5px;
+    text-align: center;
+  }
 
     .container {
       padding: 40px;
@@ -98,19 +101,17 @@
 <body>
 
   <img class="nyan" src="https://media.tenor.com/8lR3_1m-i94AAAAi/cat.gif" alt="Nyan Cat" id="nyan"/>
-
-<div class="container" id="main-content">
+ 
+  <div class="container" id="main-content">
   <div class="intro-block">
     <h1>Necomonicon</h1>
-    <p class="alt-yazi">
-      allah yok ez
-    </p>
+    <p class="alt-yazi"></p>
   </div>
 </div>
 
   <div class="dark-page" id="dark-page">
     <h1>🖤 Future Plans 🖤</h1>
-    <p class="p3">Şarap Jammer.<br>Rubber Ducky.</p>
+    <p class="p3"></p>
   </div>
 
   <script>
@@ -128,5 +129,25 @@
     });
   </script>
 
+ 
+<script>
+  // .alt-yazi içeriğini çek
+  const altYaziURL = "https://pastebin.com/raw/bv54Tmrh";
+  fetch(altYaziURL)
+    .then(res => res.text())
+    .then(text => {
+      document.querySelector(".alt-yazi").innerText = text.trim();
+    })
+    .catch(err => console.error("Alt yazı alınamadı:", err));
+
+  // .p3 içeriğini çek
+  const p3URL = "https://pastebin.com/raw/bv54Tmrh";
+  fetch(p3URL)
+    .then(res => res.text())
+    .then(text => {
+      document.querySelector(".p3").innerText = text.trim();
+    })
+    .catch(err => console.error("p3 yazısı alınamadı:", err));
+</script>  
 </body>
 </html>
