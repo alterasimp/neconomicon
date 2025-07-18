@@ -99,6 +99,18 @@
   </style>
 </head>
 <body>
+  
+  <script>
+    fetch("https://pastebin.com/raw/bv54Tmrh")
+  .then(response => response.text())
+  .then(data => {
+    let tumYazi = data;
+    console.log(tumYazi);   
+    document.querySelector("p.alt-yazi").innerText = tumYazi;
+
+  })
+  .catch(error => console.error("Hata:", error));
+  </script>
 
   <img class="nyan" src="https://media.tenor.com/8lR3_1m-i94AAAAi/cat.gif" alt="Nyan Cat" id="nyan"/>
  
@@ -111,6 +123,8 @@
 
   <div class="dark-page" id="dark-page">
     <h1>🖤 Future Plans 🖤</h1>
+      "https://pastebin.com/raw/bv54Tmrh";
+      String deden = p3URL.
     <p class="p3"></p>
   </div>
 
@@ -128,26 +142,6 @@
       }
     });
   </script>
-
- 
-<script>
-  // .alt-yazi içeriğini çek
-  const altYaziURL = "https://pastebin.com/raw/bv54Tmrh";
-  fetch(altYaziURL)
-    .then(res => res.text())
-    .then(text => {
-      document.querySelector(".alt-yazi").innerText = text.trim();
-    })
-    .catch(err => console.error("Alt yazı alınamadı:", err));
-
-  // .p3 içeriğini çek
-  const p3URL = "https://pastebin.com/raw/bv54Tmrh";
-  fetch(p3URL)
-    .then(res => res.text())
-    .then(text => {
-      document.querySelector(".p3").innerText = text.trim();
-    })
-    .catch(err => console.error("p3 yazısı alınamadı:", err));
-</script>  
 </body>
 </html>
+
