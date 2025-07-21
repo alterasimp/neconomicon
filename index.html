@@ -3,59 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Necomonicon</title>
+  <title>Neconomicon</title>
   <style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #ffccff, #ccffff);
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    overflow: auto;
-  }
-
-  .intro-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    text-align: center;
-    padding-top: -10px;
-    height: 100vh;
-  }
-
-  .intro-block h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-  }
-
-  .alt-yazi {
-    font-size: 20px;
-    max-width: 800px;
-    margin-top: 5px;
-    text-align: center;
-  }
-
-    .container {
-      padding: 40px;
-      color: #333;
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffccff, #ccffff);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow-x: hidden;
+      height: 100vh;
+      overflow-y: hidden;
     }
 
-    h1 {
-      font-size: 48px;
+    .intro-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; 
       text-align: center;
+      height: calc(100vh - 120px); 
+      padding-top: 10vh; 
+      box-sizing: border-box;
+    }
+
+    .intro-block h1 {
+      font-size: 48px;
       margin-bottom: 20px;
     }
 
-    p {
+    .alt-yazi {
       font-size: 20px;
-      line-height: 1.6;
       max-width: 800px;
-      margin: auto;
+      margin-top: 5px;
+      text-align: center;
+      padding: 0 20px;
+      max-height: 50vh;
+      overflow-y: auto;
     }
 
+    .container {
+      color: #333;
+      height: 100vh;
+      position: relative;
+    } 
+
     .nyan {
-      position: absolute;
-      top: 750px;
+      position: fixed;
+      bottom: 20px;
       left: -200px;
       width: 160px;
       animation: fly 10s linear infinite;
@@ -71,7 +65,7 @@
     .dark-page {
       background-color: black;
       color: #0ff;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
@@ -79,57 +73,54 @@
       display: none;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding-top: 60px;
+      padding-top: 15vh; 
       z-index: 999;
+      box-sizing: border-box;
     }
 
     .dark-page h1 {
       font-size: 60px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     .p3 {
       color: #ffccff;  
-      margin-top: 10px;
       font-size: 20px;
       font-weight: bold;
       text-align: center;
+      max-width: 800px;
+      max-height: 60vh;
+      overflow-y: auto;
+      padding: 0 20px;
     }
   </style>
 </head>
 <body>
-  
-
-
   <img class="nyan" src="https://media.tenor.com/8lR3_1m-i94AAAAi/cat.gif" alt="Nyan Cat" id="nyan"/>
 
-<script>
-fetch("https://gist.githubusercontent.com/alterasimp/7171b3dccf7d060f924bffc6c809ff32/raw/futureplan.txt")
-  .then(res => res.text())
-  .then(data => document.getElementById("p3").innerText = data)
-  
-
-
-  fetch("https://gist.githubusercontent.com/alterasimp/7de2ae1f6a37af1fe6355eb89c6e1dcb/raw/main")
-  .then(res => res.text())
-  .then(data => document.getElementById("alt-yazi").innerText = data)
-</script>
-
   <div class="container" id="main-content">
-     
-  <div class="intro-block">  
-    <h1>Necomonicon</h1>
-    <p class="alt-yazi" id="alt-yazi"></p>
-  </div>
-</div> 
+    <div class="intro-block">  
+      <h1>Neconomicon</h1>
+      <p class="alt-yazi" id="alt-yazi"></p>
+    </div>
+  </div> 
 
   <div class="dark-page" id="dark-page">
     <h1>🖤 Future Plans 🖤</h1>
     <p class="p3" id="p3"></p>
   </div>
 
-  <script> 
+  <script>
+    fetch("https://gist.githubusercontent.com/alterasimp/7171b3dccf7d060f924bffc6c809ff32/raw/futureplan.txt")
+      .then(res => res.text()) 
+      .then(data => document.getElementById("p3").innerText = data)
+      .catch(() => document.getElementById("p3").innerText = "error");
+
+    fetch("https://gist.githubusercontent.com/alterasimp/7de2ae1f6a37af1fe6355eb89c6e1dcb/raw/main")
+      .then(res => res.text())
+      .then(data => document.getElementById("alt-yazi").innerText = data)
+      .catch(() => document.getElementById("alt-yazi").innerText = "error");
+
     let clickCount = 0;
     const nyan = document.getElementById('nyan');
     const darkPage = document.getElementById('dark-page');
@@ -145,4 +136,3 @@ fetch("https://gist.githubusercontent.com/alterasimp/7171b3dccf7d060f924bffc6c80
   </script>
 </body>
 </html>
-
